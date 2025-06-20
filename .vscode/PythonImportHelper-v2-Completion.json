@@ -221,7 +221,7 @@
         "kind": 2,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "def extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)\n    horaire = match.group(0) if match else \"Inconnu\"",
+        "peekOfCode": "def extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))\n    # Sauvegarder l'image rognée pour affichage\n    cropped_image.save(cropped_output_path)\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -230,7 +230,7 @@
         "kind": 2,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "def extract_data(image_path):\n    texte = extraire_texte_zone(image_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)\n    horaire = match.group(0) if match else \"Inconnu\"\n    start = texte.find(horaire) + len(horaire)\n    quartiers_bruts = texte[start:]\n    quartiers = re.split(r'\\s*[-,]\\s*', quartiers_bruts)\n    quartiers = [q.strip() for q in quartiers if len(q.strip()) > 2]\n    return {horaire: quartiers}\ndef analyse_image(request):",
+        "peekOfCode": "def extract_data(image_path, cropped_output_path):\n    texte = extraire_texte_zone(image_path, cropped_output_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)\n    horaire = match.group(0) if match else \"Inconnu\"\n    start = texte.find(horaire) + len(horaire)\n    quartiers_bruts = texte[start:]\n    quartiers = re.split(r'\\s*[-,]\\s*', quartiers_bruts)\n    quartiers = [q.strip() for q in quartiers if len(q.strip()) > 2]\n    return {horaire: quartiers}\ndef analyse_image(request):",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -239,7 +239,7 @@
         "kind": 2,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "def analyse_image(request):\n    data = None\n    if request.method == 'POST':\n        form = ImageUploadForm(request.POST, request.FILES)\n        if form.is_valid():\n            instance = form.save()\n            path = instance.image.path\n            data = extract_data(path)\n            # Enregistrer en JSON\n            with open('media/resultat.json', 'w', encoding='utf-8') as f:",
+        "peekOfCode": "def analyse_image(request):\n    data = None\n    cropped_image_url = None\n    if request.method == 'POST':\n        form = ImageUploadForm(request.POST, request.FILES)\n        if form.is_valid():\n            instance = form.save()\n            path = instance.image.path\n            # Chemin de l'image rognée\n            cropped_path = os.path.join(\"media\", \"cropped.jpg\")",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -248,7 +248,16 @@
         "kind": 5,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "LEFT = 165\n# LEFT = 500\nTOP = 228\nBOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte",
+        "peekOfCode": "LEFT = 0\nRIGHT = 300\nTOP = 350\nBOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))",
+        "detail": "analyse.views",
+        "documentation": {}
+    },
+    {
+        "label": "RIGHT",
+        "kind": 5,
+        "importPath": "analyse.views",
+        "description": "analyse.views",
+        "peekOfCode": "RIGHT = 300\nTOP = 350\nBOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))\n    # Sauvegarder l'image rognée pour affichage",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -257,7 +266,7 @@
         "kind": 5,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "TOP = 228\nBOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)",
+        "peekOfCode": "TOP = 350\nBOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))\n    # Sauvegarder l'image rognée pour affichage\n    cropped_image.save(cropped_output_path)",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -266,7 +275,7 @@
         "kind": 5,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "BOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)",
+        "peekOfCode": "BOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))\n    # Sauvegarder l'image rognée pour affichage\n    cropped_image.save(cropped_output_path)\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')",
         "detail": "analyse.views",
         "documentation": {}
     },
