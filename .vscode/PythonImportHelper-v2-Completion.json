@@ -221,7 +221,7 @@
         "kind": 2,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "def extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))\n    # Sauvegarder l'image rognée pour affichage\n    cropped_image.save(cropped_output_path)\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte",
+        "peekOfCode": "def extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    # cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))\n    # Sauvegarder l'image rognée pour affichage\n    cropped_image.save(cropped_output_path)\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -248,16 +248,7 @@
         "kind": 5,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "LEFT = 0\nRIGHT = 300\nTOP = 350\nBOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))",
-        "detail": "analyse.views",
-        "documentation": {}
-    },
-    {
-        "label": "RIGHT",
-        "kind": 5,
-        "importPath": "analyse.views",
-        "description": "analyse.views",
-        "peekOfCode": "RIGHT = 300\nTOP = 350\nBOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))\n    # Sauvegarder l'image rognée pour affichage",
+        "peekOfCode": "LEFT = 166\nTOP = 205\nBOTTOM = 1000\n# Pour l'heure\n# LEFT = 0\n# RIGHT = 300\n# TOP = 350\n# BOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -266,7 +257,7 @@
         "kind": 5,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "TOP = 350\nBOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))\n    # Sauvegarder l'image rognée pour affichage\n    cropped_image.save(cropped_output_path)",
+        "peekOfCode": "TOP = 205\nBOTTOM = 1000\n# Pour l'heure\n# LEFT = 0\n# RIGHT = 300\n# TOP = 350\n# BOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width ",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -275,7 +266,7 @@
         "kind": 5,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "BOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))\n    # Sauvegarder l'image rognée pour affichage\n    cropped_image.save(cropped_output_path)\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')",
+        "peekOfCode": "BOTTOM = 1000\n# Pour l'heure\n# LEFT = 0\n# RIGHT = 300\n# TOP = 350\n# BOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))",
         "detail": "analyse.views",
         "documentation": {}
     },

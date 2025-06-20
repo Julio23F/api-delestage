@@ -101,22 +101,24 @@ import os
 
 # #Pour les quartier
 # LEFT = 235
-# TOP = 205
-# BOTTOM = 1000
+LEFT = 166
+TOP = 205
+BOTTOM = 1000
 
 
 # Pour l'heure
-LEFT = 0
-RIGHT = 300
-TOP = 350
-BOTTOM = 750
+# LEFT = 0
+# RIGHT = 300
+# TOP = 350
+# BOTTOM = 750
 
 def extraire_texte_zone(image_path, cropped_output_path):
     image = Image.open(image_path)
     width = image.width 
-    # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))
+    
+    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))
     image = Image.open(image_path)
-    cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))
+    # cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))
 
     # Sauvegarder l'image rognée pour affichage
     cropped_image.save(cropped_output_path)
