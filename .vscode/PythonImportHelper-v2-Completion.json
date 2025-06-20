@@ -1,0 +1,480 @@
+[
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "pytesseract",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytesseract",
+        "description": "pytesseract",
+        "detail": "pytesseract",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "analyse_image",
+        "importPath": "analyse.views",
+        "description": "analyse.views",
+        "isExtraImport": true,
+        "detail": "analyse.views",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "analyse.migrations.0001_initial",
+        "description": "analyse.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='ImageUpload',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('image', models.ImageField(upload_to='uploads/')),",
+        "detail": "analyse.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "AnalyseConfig",
+        "kind": 6,
+        "importPath": "analyse.apps",
+        "description": "analyse.apps",
+        "peekOfCode": "class AnalyseConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'analyse'",
+        "detail": "analyse.apps",
+        "documentation": {}
+    },
+    {
+        "label": "ImageUploadForm",
+        "kind": 6,
+        "importPath": "analyse.forms",
+        "description": "analyse.forms",
+        "peekOfCode": "class ImageUploadForm(forms.ModelForm):\n    class Meta:\n        model = ImageUpload\n        fields = ['image']",
+        "detail": "analyse.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ImageUpload",
+        "kind": 6,
+        "importPath": "analyse.models",
+        "description": "analyse.models",
+        "peekOfCode": "class ImageUpload(models.Model):\n    image = models.ImageField(upload_to='uploads/')\n    uploaded_at = models.DateTimeField(auto_now_add=True)",
+        "detail": "analyse.models",
+        "documentation": {}
+    },
+    {
+        "label": "extraire_texte_zone",
+        "kind": 2,
+        "importPath": "analyse.views",
+        "description": "analyse.views",
+        "peekOfCode": "def extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width  # récupérer la largeur totale de l'image\n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)\n    horaire = match.group(0) if match else \"Inconnu\"",
+        "detail": "analyse.views",
+        "documentation": {}
+    },
+    {
+        "label": "extract_data",
+        "kind": 2,
+        "importPath": "analyse.views",
+        "description": "analyse.views",
+        "peekOfCode": "def extract_data(image_path):\n    texte = extraire_texte_zone(image_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)\n    horaire = match.group(0) if match else \"Inconnu\"\n    start = texte.find(horaire) + len(horaire)\n    quartiers_bruts = texte[start:]\n    quartiers = re.split(r'\\s*[-,]\\s*', quartiers_bruts)\n    quartiers = [q.strip() for q in quartiers if len(q.strip()) > 2]\n    return {horaire: quartiers}\ndef analyse_image(request):",
+        "detail": "analyse.views",
+        "documentation": {}
+    },
+    {
+        "label": "analyse_image",
+        "kind": 2,
+        "importPath": "analyse.views",
+        "description": "analyse.views",
+        "peekOfCode": "def analyse_image(request):\n    data = None\n    if request.method == 'POST':\n        form = ImageUploadForm(request.POST, request.FILES)\n        if form.is_valid():\n            instance = form.save()\n            path = instance.image.path\n            data = extract_data(path)\n            # Enregistrer en JSON\n            with open('media/resultat.json', 'w', encoding='utf-8') as f:",
+        "detail": "analyse.views",
+        "documentation": {}
+    },
+    {
+        "label": "LEFT",
+        "kind": 5,
+        "importPath": "analyse.views",
+        "description": "analyse.views",
+        "peekOfCode": "LEFT = 165\n# LEFT = 500\nTOP = 228\nBOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width  # récupérer la largeur totale de l'image\n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte",
+        "detail": "analyse.views",
+        "documentation": {}
+    },
+    {
+        "label": "TOP",
+        "kind": 5,
+        "importPath": "analyse.views",
+        "description": "analyse.views",
+        "peekOfCode": "TOP = 228\nBOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width  # récupérer la largeur totale de l'image\n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)",
+        "detail": "analyse.views",
+        "documentation": {}
+    },
+    {
+        "label": "BOTTOM",
+        "kind": 5,
+        "importPath": "analyse.views",
+        "description": "analyse.views",
+        "peekOfCode": "BOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width  # récupérer la largeur totale de l'image\n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)",
+        "detail": "analyse.views",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "delestage.asgi",
+        "description": "delestage.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "delestage.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-qn6s4(gj&ga6tx3r$fv2f_d23dk=up5r!16#xq3yl@3%w92+hg'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-qn6s4(gj&ga6tx3r$fv2f_d23dk=up5r!16#xq3yl@3%w92+hg'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'analyse',",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'analyse',\n]\nMEDIA_URL = '/media/'",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR / 'media'\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "MEDIA_ROOT = BASE_DIR / 'media'\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'delestage.urls'",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "ROOT_URLCONF = 'delestage.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'delestage.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "delestage.settings",
+        "description": "delestage.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "delestage.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "delestage.urls",
+        "description": "delestage.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', analyse_image, name='analyse_image'),\n] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
+        "detail": "delestage.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "delestage.wsgi",
+        "description": "delestage.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "delestage.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'delestage.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "manage",
+        "documentation": {}
+    }
+]

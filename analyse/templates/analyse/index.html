@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Analyse Delestage</title>
+</head>
+<body>
+    <h1>Uploader une image de délestage</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Analyser</button>
+    </form>
+
+    {% if data %}
+        <h2>Résultat :</h2>
+        <pre>{{ data }}</pre>
+    {% endif %}
+</body>
+</html>
