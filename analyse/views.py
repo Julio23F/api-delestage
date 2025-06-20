@@ -97,44 +97,94 @@ from django.shortcuts import render
 from .forms import ImageUploadForm
 from PIL import Image
 import os
+import re
 
 
-# #Pour les quartier
-# LEFT = 235
-LEFT = 166
-TOP = 205
-BOTTOM = 1000
 
-
-# Pour l'heure
-# LEFT = 0
-# RIGHT = 300
-# TOP = 350
-# BOTTOM = 750
-
-def extraire_texte_zone(image_path, cropped_output_path):
-    image = Image.open(image_path)
-    width = image.width 
+# def extraire_texte_zone(image_path, cropped_output_path):
+#     image = Image.open(image_path)
+#     width = image.width 
     
-    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))
-    image = Image.open(image_path)
-    # cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))
+#     # cropped_image = image.crop((LEFT, TOP, width, BOTTOM))
+#     image = Image.open(image_path)
+#     cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))
 
-    # Sauvegarder l'image rognée pour affichage
-    cropped_image.save(cropped_output_path)
+#     # Sauvegarder l'image rognée pour affichage
+#     cropped_image.save(cropped_output_path)
 
-    texte = pytesseract.image_to_string(cropped_image, lang='fra')
-    return texte
+#     texte = pytesseract.image_to_string(cropped_image, lang='fra')
+#     return texte
+def extraire_texte_zone(image_path, cropped_output_path, isForDate, isForHour):
+    with Image.open(image_path) as image:
+        
+        if isForDate:
+            # Pour la date
+            LEFT = 857
+            RIGHT = None
+            TOP = 0
+            BOTTOM = 150
+        elif isForHour:
+             # Pour l'heure
+            LEFT = 0
+            RIGHT = 300
+            TOP = 0
+            BOTTOM = 750
+        else:
+            # Pour les quartier
+            # LEFT = 166
+            LEFT = 235
+            RIGHT = None
+            TOP = 205
+            BOTTOM = 1000
+            
+            
+        width = image.width
 
-def extract_data(image_path, cropped_output_path):
-    texte = extraire_texte_zone(image_path, cropped_output_path)
-    match = re.search(r'\b\d{2}H00\s*-\s*\d{2}H00\b', texte)
-    horaire = match.group(0) if match else "Inconnu"
-    start = texte.find(horaire) + len(horaire)
-    quartiers_bruts = texte[start:]
-    quartiers = re.split(r'\s*[-,]\s*', quartiers_bruts)
+        right = RIGHT if RIGHT is not None else width
+
+        cropped_image = image.crop((LEFT, TOP, right, BOTTOM))
+        cropped_image.save(cropped_output_path)
+
+        texte = pytesseract.image_to_string(cropped_image, lang='fra')
+        return texte
+    
+# def extract_data(image_path, cropped_output_path):
+#     texte = extraire_texte_zone(image_path, cropped_output_path)
+#     match = re.search(r'\b\d{2}H00\s*-\s*\d{2}H00\b', texte)
+#     horaire = match.group(0) if match else "Inconnu"
+#     start = texte.find(horaire) + len(horaire)
+#     quartiers_bruts = texte[start:]
+#     print(f"quartiers_bruts {quartiers_bruts}")
+    
+#     quartiers = re.split(r'\s*[-,]\s*', quartiers_bruts)
+#     print(f"quartiers1 {quartiers}")
+    
+#     quartiers = [q.strip() for q in quartiers if len(q.strip()) > 2]
+#     print(f"quartiers2 {quartiers}")
+    
+#     print(f"test {texte}")
+#     print(f"start {start}")
+    
+#     return {horaire: quartiers}
+def extract_data(image_path, cropped_output_path, isForDate=False, isForHour=False):
+    texte = extraire_texte_zone(image_path, cropped_output_path, isForDate, isForHour)
+
+    print(f"Texte extrait complet :\n{texte}\n")
+
+    quartiers = re.split(r'\s*[-,]\s*', texte)
+    print(f"Quartiers bruts : {quartiers}")
+
     quartiers = [q.strip() for q in quartiers if len(q.strip()) > 2]
-    return {horaire: quartiers}
+    print(f"Quartiers filtrés : {quartiers}")
+
+    #Retour pour la date
+    if isForDate:
+        texte = re.sub(r'[\n\f\r\t]', '', texte[2:]).strip()
+        return texte
+    elif isForHour:
+        texte = re.sub(r'[\f\r\t]', '', texte[2:]).replace('\n\n', '-').strip()
+        return texte
+    return quartiers
 
 def analyse_image(request):
     data = None
@@ -146,16 +196,16 @@ def analyse_image(request):
             instance = form.save()
             path = instance.image.path
 
-            # Chemin de l'image rognée
             cropped_path = os.path.join("media", "cropped.jpg")
 
             # Extraction + sauvegarde de l'image rognée
-            data = extract_data(path, cropped_path)
+            quartiers = extract_data(path, cropped_path, isForDate=False, isForHour=False)
+            date = extract_data(path, cropped_path, isForDate=True, isForHour=False)
+            hours = extract_data(path, cropped_path, isForDate=False, isForHour=True)
 
-            # Stocker URL relative pour affichage
+            data = {date : {hours: quartiers}}
             cropped_image_url = "/" + cropped_path.replace("\\", "/")
 
-            # Enregistrer en JSON
             with open('media/resultat.json', 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=4)
 

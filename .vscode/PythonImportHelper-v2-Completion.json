@@ -221,7 +221,7 @@
         "kind": 2,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "def extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    image = Image.open(image_path)\n    # cropped_image = image.crop((LEFT, TOP, RIGHT, BOTTOM))\n    # Sauvegarder l'image rognée pour affichage\n    cropped_image.save(cropped_output_path)\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte",
+        "peekOfCode": "def extraire_texte_zone(image_path, cropped_output_path, isForDate, isForHour):\n    with Image.open(image_path) as image:\n        if isForDate:\n            # Pour la date\n            LEFT = 857\n            RIGHT = None\n            TOP = 0\n            BOTTOM = 150\n        elif isForHour:\n             # Pour l'heure",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -230,7 +230,7 @@
         "kind": 2,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "def extract_data(image_path, cropped_output_path):\n    texte = extraire_texte_zone(image_path, cropped_output_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)\n    horaire = match.group(0) if match else \"Inconnu\"\n    start = texte.find(horaire) + len(horaire)\n    quartiers_bruts = texte[start:]\n    quartiers = re.split(r'\\s*[-,]\\s*', quartiers_bruts)\n    quartiers = [q.strip() for q in quartiers if len(q.strip()) > 2]\n    return {horaire: quartiers}\ndef analyse_image(request):",
+        "peekOfCode": "def extract_data(image_path, cropped_output_path, isForDate=False, isForHour=False):\n    texte = extraire_texte_zone(image_path, cropped_output_path, isForDate, isForHour)\n    print(f\"Texte extrait complet :\\n{texte}\\n\")\n    quartiers = re.split(r'\\s*[-,]\\s*', texte)\n    print(f\"Quartiers bruts : {quartiers}\")\n    quartiers = [q.strip() for q in quartiers if len(q.strip()) > 2]\n    print(f\"Quartiers filtrés : {quartiers}\")\n    #Retour pour la date\n    if isForDate:\n        texte = re.sub(r'[\\n\\f\\r\\t]', '', texte[2:]).strip()",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -239,34 +239,7 @@
         "kind": 2,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "def analyse_image(request):\n    data = None\n    cropped_image_url = None\n    if request.method == 'POST':\n        form = ImageUploadForm(request.POST, request.FILES)\n        if form.is_valid():\n            instance = form.save()\n            path = instance.image.path\n            # Chemin de l'image rognée\n            cropped_path = os.path.join(\"media\", \"cropped.jpg\")",
-        "detail": "analyse.views",
-        "documentation": {}
-    },
-    {
-        "label": "LEFT",
-        "kind": 5,
-        "importPath": "analyse.views",
-        "description": "analyse.views",
-        "peekOfCode": "LEFT = 166\nTOP = 205\nBOTTOM = 1000\n# Pour l'heure\n# LEFT = 0\n# RIGHT = 300\n# TOP = 350\n# BOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)",
-        "detail": "analyse.views",
-        "documentation": {}
-    },
-    {
-        "label": "TOP",
-        "kind": 5,
-        "importPath": "analyse.views",
-        "description": "analyse.views",
-        "peekOfCode": "TOP = 205\nBOTTOM = 1000\n# Pour l'heure\n# LEFT = 0\n# RIGHT = 300\n# TOP = 350\n# BOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width ",
-        "detail": "analyse.views",
-        "documentation": {}
-    },
-    {
-        "label": "BOTTOM",
-        "kind": 5,
-        "importPath": "analyse.views",
-        "description": "analyse.views",
-        "peekOfCode": "BOTTOM = 1000\n# Pour l'heure\n# LEFT = 0\n# RIGHT = 300\n# TOP = 350\n# BOTTOM = 750\ndef extraire_texte_zone(image_path, cropped_output_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))",
+        "peekOfCode": "def analyse_image(request):\n    data = None\n    cropped_image_url = None\n    if request.method == 'POST':\n        form = ImageUploadForm(request.POST, request.FILES)\n        if form.is_valid():\n            instance = form.save()\n            path = instance.image.path\n            cropped_path = os.path.join(\"media\", \"cropped.jpg\")\n            # Extraction + sauvegarde de l'image rognée",
         "detail": "analyse.views",
         "documentation": {}
     },
