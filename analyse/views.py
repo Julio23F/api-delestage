@@ -32,7 +32,6 @@
 #         form = ImageUploadForm()
 #     return render(request, 'analyse/index.html', {'form': form, 'data': data})
 
-# Définir la zone de recadrage (à adapter selon ton image)
 # ZONE_DE_RECADRAGE = (100, 300, 1200, 900)  # (left, top, right, bottom)
 
 # def extraire_texte_zone(image_path, zone=None):
@@ -48,7 +47,6 @@ from django.shortcuts import render
 from .forms import ImageUploadForm
 from PIL import Image
 
-# Coordonnées fixes pour le recadrage, sauf right (calculé dynamiquement)
 LEFT = 165
 # LEFT = 500
 TOP = 228
@@ -56,7 +54,7 @@ BOTTOM = 1000
 
 def extraire_texte_zone(image_path):
     image = Image.open(image_path)
-    width = image.width  # récupérer la largeur totale de l'image
+    width = image.width 
     cropped_image = image.crop((LEFT, TOP, width, BOTTOM))
     texte = pytesseract.image_to_string(cropped_image, lang='fra')
     return texte

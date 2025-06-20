@@ -221,7 +221,7 @@
         "kind": 2,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "def extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width  # récupérer la largeur totale de l'image\n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)\n    horaire = match.group(0) if match else \"Inconnu\"",
+        "peekOfCode": "def extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)\n    horaire = match.group(0) if match else \"Inconnu\"",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -248,7 +248,7 @@
         "kind": 5,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "LEFT = 165\n# LEFT = 500\nTOP = 228\nBOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width  # récupérer la largeur totale de l'image\n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte",
+        "peekOfCode": "LEFT = 165\n# LEFT = 500\nTOP = 228\nBOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -257,7 +257,7 @@
         "kind": 5,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "TOP = 228\nBOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width  # récupérer la largeur totale de l'image\n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)",
+        "peekOfCode": "TOP = 228\nBOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)",
         "detail": "analyse.views",
         "documentation": {}
     },
@@ -266,7 +266,7 @@
         "kind": 5,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "BOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width  # récupérer la largeur totale de l'image\n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)",
+        "peekOfCode": "BOTTOM = 1000\ndef extraire_texte_zone(image_path):\n    image = Image.open(image_path)\n    width = image.width \n    cropped_image = image.crop((LEFT, TOP, width, BOTTOM))\n    texte = pytesseract.image_to_string(cropped_image, lang='fra')\n    return texte\ndef extract_data(image_path):\n    texte = extraire_texte_zone(image_path)\n    match = re.search(r'\\b\\d{2}H00\\s*-\\s*\\d{2}H00\\b', texte)",
         "detail": "analyse.views",
         "documentation": {}
     },
