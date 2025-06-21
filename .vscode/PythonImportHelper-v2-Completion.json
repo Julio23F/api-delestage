@@ -56,6 +56,32 @@
         "documentation": {}
     },
     {
+        "label": "Facebook_scraper",
+        "importPath": "facebook_page_scraper",
+        "description": "facebook_page_scraper",
+        "isExtraImport": true,
+        "detail": "facebook_page_scraper",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -82,15 +108,6 @@
         "documentation": {}
     },
     {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -104,15 +121,6 @@
         "description": "PIL",
         "isExtraImport": true,
         "detail": "PIL",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
         "documentation": {}
     },
     {
@@ -217,6 +225,69 @@
         "documentation": {}
     },
     {
+        "label": "page",
+        "kind": 5,
+        "importPath": "analyse.scraper",
+        "description": "analyse.scraper",
+        "peekOfCode": "page = 'jiramaofisialy'\nposts_count = 100\nbrowser = \"chrome\"\ntimeout = 600\nheadless = True  # Mode sans fenêtre\nscraper = Facebook_scraper(page, posts_count, browser, timeout=timeout, headless=headless)\ndata = scraper.scrap_to_json()\nprint(json.dumps(data, indent=4, ensure_ascii=False))",
+        "detail": "analyse.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "posts_count",
+        "kind": 5,
+        "importPath": "analyse.scraper",
+        "description": "analyse.scraper",
+        "peekOfCode": "posts_count = 100\nbrowser = \"chrome\"\ntimeout = 600\nheadless = True  # Mode sans fenêtre\nscraper = Facebook_scraper(page, posts_count, browser, timeout=timeout, headless=headless)\ndata = scraper.scrap_to_json()\nprint(json.dumps(data, indent=4, ensure_ascii=False))",
+        "detail": "analyse.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "browser",
+        "kind": 5,
+        "importPath": "analyse.scraper",
+        "description": "analyse.scraper",
+        "peekOfCode": "browser = \"chrome\"\ntimeout = 600\nheadless = True  # Mode sans fenêtre\nscraper = Facebook_scraper(page, posts_count, browser, timeout=timeout, headless=headless)\ndata = scraper.scrap_to_json()\nprint(json.dumps(data, indent=4, ensure_ascii=False))",
+        "detail": "analyse.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "timeout",
+        "kind": 5,
+        "importPath": "analyse.scraper",
+        "description": "analyse.scraper",
+        "peekOfCode": "timeout = 600\nheadless = True  # Mode sans fenêtre\nscraper = Facebook_scraper(page, posts_count, browser, timeout=timeout, headless=headless)\ndata = scraper.scrap_to_json()\nprint(json.dumps(data, indent=4, ensure_ascii=False))",
+        "detail": "analyse.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "headless",
+        "kind": 5,
+        "importPath": "analyse.scraper",
+        "description": "analyse.scraper",
+        "peekOfCode": "headless = True  # Mode sans fenêtre\nscraper = Facebook_scraper(page, posts_count, browser, timeout=timeout, headless=headless)\ndata = scraper.scrap_to_json()\nprint(json.dumps(data, indent=4, ensure_ascii=False))",
+        "detail": "analyse.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "scraper",
+        "kind": 5,
+        "importPath": "analyse.scraper",
+        "description": "analyse.scraper",
+        "peekOfCode": "scraper = Facebook_scraper(page, posts_count, browser, timeout=timeout, headless=headless)\ndata = scraper.scrap_to_json()\nprint(json.dumps(data, indent=4, ensure_ascii=False))",
+        "detail": "analyse.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "analyse.scraper",
+        "description": "analyse.scraper",
+        "peekOfCode": "data = scraper.scrap_to_json()\nprint(json.dumps(data, indent=4, ensure_ascii=False))",
+        "detail": "analyse.scraper",
+        "documentation": {}
+    },
+    {
         "label": "extraire_texte_zone",
         "kind": 2,
         "importPath": "analyse.views",
@@ -230,7 +301,7 @@
         "kind": 2,
         "importPath": "analyse.views",
         "description": "analyse.views",
-        "peekOfCode": "def extract_data(image_path, cropped_output_path, isForDate=False, isForHour=False):\n    texte = extraire_texte_zone(image_path, cropped_output_path, isForDate, isForHour)\n    print(f\"Texte extrait complet :\\n{texte}\\n\")\n    quartiers = re.split(r'\\s*[-,]\\s*', texte)\n    print(f\"Quartiers bruts : {quartiers}\")\n    quartiers = [q.strip() for q in quartiers if len(q.strip()) > 2]\n    print(f\"Quartiers filtrés : {quartiers}\")\n    #Retour pour la date\n    if isForDate:\n        texte = re.sub(r'[\\n\\f\\r\\t]', '', texte[2:]).strip()",
+        "peekOfCode": "def extract_data(image_path, cropped_output_path, isForDate=False, isForHour=False):\n    texte = extraire_texte_zone(image_path, cropped_output_path, isForDate, isForHour)\n    print(f\"texte :\\n{texte}\\n\")\n    quartiers = re.split(r'\\s*[-,]\\s*', texte)\n    print(f\"Quartiers bruts : {quartiers}\")\n    quartiers = [q.strip() for q in quartiers if len(q.strip()) > 2]\n    print(f\"quartiers : {quartiers}\")\n    #Retour pour la date\n    if isForDate:\n        texte = re.sub(r'[\\n\\f\\r\\t]', '', texte[2:]).strip()",
         "detail": "analyse.views",
         "documentation": {}
     },

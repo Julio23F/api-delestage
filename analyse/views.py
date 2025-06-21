@@ -169,13 +169,13 @@ def extraire_texte_zone(image_path, cropped_output_path, isForDate, isForHour):
 def extract_data(image_path, cropped_output_path, isForDate=False, isForHour=False):
     texte = extraire_texte_zone(image_path, cropped_output_path, isForDate, isForHour)
 
-    print(f"Texte extrait complet :\n{texte}\n")
+    print(f"texte :\n{texte}\n")
 
     quartiers = re.split(r'\s*[-,]\s*', texte)
     print(f"Quartiers bruts : {quartiers}")
 
     quartiers = [q.strip() for q in quartiers if len(q.strip()) > 2]
-    print(f"Quartiers filtrés : {quartiers}")
+    print(f"quartiers : {quartiers}")
 
     #Retour pour la date
     if isForDate:
